@@ -37,7 +37,7 @@
         </h1>
         <p class="hero-desc">
           <strong>Building intelligent systems</strong> at the intersection of ML,
-          full-stack engineering, and competitive programming. 200+ DSA problems.
+          full-stack engineering, and competitive programming. <span id="hero-problem-count">200+</span> DSA problems.
           Always learning.
         </p>
         <div class="hero-actions">
@@ -80,8 +80,8 @@
           <div class="term-line tl-3"><span class="term-prompt">→</span><span class="term-cmd">cat skills.json | jq .languages</span></div>
           <div class="term-line tl-4"><span class="term-out">["C++", "Python", "JavaScript", "Java", "C"]</span></div>
           <div class="term-line tl-5"><span class="term-prompt">→</span><span class="term-cmd">cat stats.json</span></div>
-          <div class="term-line tl-6"><span class="term-out">{ leetcode: <span class="cyan">1502</span>, codeforces: <span class="cyan">1014</span>,</span></div>
-          <div class="term-line tl-7"><span class="term-out">&nbsp;&nbsp;problems_solved: <span class="cyan">200+</span>, badges: <span class="cyan">2</span> }</span></div>
+          <div class="term-line tl-6"><span class="term-out">{ leetcode: <span class="cyan" id="term-lc-rating">1502</span>, codeforces: <span class="cyan" id="term-cf-rating">1014</span>,</span></div>
+          <div class="term-line tl-7"><span class="term-out">&nbsp;&nbsp;problems_solved: <span class="cyan" id="term-solved">200+</span>, badges: <span class="cyan" id="term-badges">2</span> }</span></div>
           <div class="term-line tl-8"><span class="term-prompt">→</span><span class="term-cmd">ls projects/</span></div>
           <div class="term-line tl-9"><span class="term-out green">DevPulse/ SmartAttendance/ EVFinder/</span></div>
           <div class="term-line tl-10">
@@ -146,97 +146,101 @@
       <div class="stats-inner">
 
         <!-- LeetCode Card -->
-        <div class="stat-card reveal">
+        <div class="stat-card reveal" id="lc-card">
           <div class="stat-platform">
             <div class="stat-platform-dot lc"></div>
             LeetCode · Krishna_43
+            <span class="live-badge" id="lc-live-badge">● LIVE</span>
           </div>
           <div class="stat-numbers">
             <div class="stat-num-item">
-              <div class="stat-val">1502</div>
+              <div class="stat-val" id="lc-rating">1502</div>
               <div class="stat-label">Rating</div>
             </div>
             <div class="stat-num-item">
-              <div class="stat-val">160<span>+</span></div>
+              <div class="stat-val" id="lc-solved">160<span>+</span></div>
               <div class="stat-label">Problems</div>
             </div>
             <div class="stat-num-item">
-              <div class="stat-val">2</div>
+              <div class="stat-val" id="lc-badges">2</div>
               <div class="stat-label">Badges</div>
             </div>
           </div>
           <div class="rating-bar-wrap">
             <div class="rating-bar-label">
-              <span>Rating Progress</span><span>1502 / 3000</span>
+              <span>Rating Progress</span><span id="lc-bar-label">1502 / 3000</span>
             </div>
             <div class="rating-bar">
-              <div class="rating-bar-fill" style="width:50%"></div>
+              <div class="rating-bar-fill" id="lc-bar-fill" style="width:50%"></div>
             </div>
           </div>
-          <div class="badges-row">
+          <div class="badges-row" id="lc-badges-row">
             <div class="badge"><div class="badge-dot"></div>50 Days Badge 2026</div>
             <div class="badge"><div class="badge-dot"></div>100 Days Badge 2026</div>
           </div>
           <div class="stat-sub-block">
             <div class="skill-cat-label">Top Tags</div>
-            <div class="skill-pills">
+            <div class="skill-pills" id="lc-tags">
               <span class="pill">Array ×92</span><span class="pill">Hash Table ×35</span><span class="pill">Two Pointers ×34</span><span class="pill">Binary Search ×33</span><span class="pill">DP ×9</span>
             </div>
           </div>
           <div class="stat-sub-block">
             <div class="skill-cat-label">Language Breakdown</div>
-            <div class="lang-row">
-              <div class="lang-item"><div class="lang-count">140</div><div class="lang-name">C++</div></div>
-              <div class="lang-item"><div class="lang-count">12</div><div class="lang-name">Python3</div></div>
-              <div class="lang-item"><div class="lang-count">8</div><div class="lang-name">MySQL</div></div>
+            <div class="lang-row" id="lc-langs">
+              <div class="lang-item"><div class="lang-count" id="lc-cpp">140</div><div class="lang-name">C++</div></div>
+              <div class="lang-item"><div class="lang-count" id="lc-py">12</div><div class="lang-name">Python3</div></div>
+              <div class="lang-item"><div class="lang-count" id="lc-sql">8</div><div class="lang-name">MySQL</div></div>
             </div>
           </div>
+          <div class="stat-updated" id="lc-updated">Fetching live data…</div>
         </div>
 
         <!-- Codeforces Card -->
-        <div class="stat-card reveal">
+        <div class="stat-card reveal" id="cf-card">
           <div class="stat-platform">
             <div class="stat-platform-dot cf"></div>
             Codeforces · krishnap_14
+            <span class="live-badge" id="cf-live-badge">● LIVE</span>
           </div>
           <div class="stat-numbers">
             <div class="stat-num-item">
-              <div class="stat-val">945</div>
+              <div class="stat-val" id="cf-current">945</div>
               <div class="stat-label">Current</div>
             </div>
             <div class="stat-num-item">
-              <div class="stat-val">1014</div>
+              <div class="stat-val" id="cf-max">1014</div>
               <div class="stat-label">Max Rating</div>
             </div>
             <div class="stat-num-item">
-              <div class="stat-val">22</div>
+              <div class="stat-val" id="cf-solved">22</div>
               <div class="stat-label">Solved</div>
             </div>
           </div>
           <div class="rating-bar-wrap">
             <div class="rating-bar-label">
-              <span>Max Rating Progress</span><span>1014 / 3500</span>
+              <span>Max Rating Progress</span><span id="cf-bar-label">1014 / 3500</span>
             </div>
             <div class="rating-bar">
-              <div class="rating-bar-fill" style="width:28.9%"></div>
+              <div class="rating-bar-fill" id="cf-bar-fill" style="width:28.9%"></div>
             </div>
           </div>
-          <div class="badges-row">
-            <div class="badge"><div class="badge-dot"></div>Newbie Rank</div>
+          <div class="badges-row" id="cf-badges-row">
+            <div class="badge"><div class="badge-dot"></div><span id="cf-rank">Newbie</span> Rank</div>
             <div class="badge"><div class="badge-dot"></div>Sharda University</div>
-            <div class="badge"><div class="badge-dot"></div>8 months active</div>
+            <div class="badge"><div class="badge-dot"></div><span id="cf-contests">—</span> Contests</div>
           </div>
           <div class="stat-sub-block">
             <div class="skill-cat-label">Activity Stats</div>
             <div class="lang-row">
-              <div class="lang-item"><div class="lang-count">22</div><div class="lang-name">All-time Solved</div></div>
-              <div class="lang-item"><div class="lang-count">2 days</div><div class="lang-name">Max Streak</div></div>
+              <div class="lang-item"><div class="lang-count" id="cf-solved2">22</div><div class="lang-name">All-time Solved</div></div>
+              <div class="lang-item"><div class="lang-count" id="cf-contrib">—</div><div class="lang-name">Contribution</div></div>
             </div>
           </div>
           <div class="cf-note">
             <div class="cf-note-label">// Journey Note</div>
-            <div class="cf-note-text">Started 8 months ago. Peak reached 1014. Still climbing — the grind continues.</div>
+            <div class="cf-note-text">Started 8 months ago. Peak reached <span id="cf-max-note">1014</span>. Still climbing — the grind continues.</div>
           </div>
+          <div class="stat-updated" id="cf-updated">Fetching live data…</div>
         </div>
 
       </div>
